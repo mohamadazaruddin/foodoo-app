@@ -6,6 +6,7 @@ import RecipesCard from "../components/RecipesCard";
 export default function page() {
   const recipecardDetail = [
     {
+      id: 1,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -14,6 +15,7 @@ export default function page() {
       rating: "4",
     },
     {
+      id: 2,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -22,6 +24,7 @@ export default function page() {
       rating: "4",
     },
     {
+      id: 3,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -31,6 +34,7 @@ export default function page() {
     },
 
     {
+      id: 4,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -39,6 +43,7 @@ export default function page() {
       rating: "4",
     },
     {
+      id: 5,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -47,6 +52,7 @@ export default function page() {
       rating: "4",
     },
     {
+      id: 6,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -55,6 +61,7 @@ export default function page() {
       rating: "4",
     },
     {
+      id: 7,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -63,6 +70,7 @@ export default function page() {
       rating: "4",
     },
     {
+      id: 8,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",

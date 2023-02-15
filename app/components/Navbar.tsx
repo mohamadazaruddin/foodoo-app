@@ -14,19 +14,45 @@ export default function navbar() {
   const router = useRouter();
   return (
     <Box w="200px" h="full" bgColor="#fff" p="20px">
-      <Heading>Foodoo</Heading>
+      <Heading
+        onClick={() => {
+          router.push("/home");
+        }}
+      >
+        Foodoo
+      </Heading>
       <Box>
         <UnorderedList listStyleType="none">
           <ListItem
             onClick={() => {
-              router.push("/recipes");
+              router.push("/home");
             }}
           >
             recipe
           </ListItem>
-          <ListItem>favorites</ListItem>
-          <ListItem>course</ListItem>
-          <ListItem>communnity</ListItem>
+          <ListItem
+            cursor="pointer"
+            onClick={() => {
+              router.push("/favorites");
+              console.log("fAV");
+            }}
+          >
+            favorites
+          </ListItem>
+          <ListItem
+            onClick={() => {
+              router.push("/my-recipes");
+            }}
+          >
+            my-recipes
+          </ListItem>
+          <ListItem
+            onClick={() => {
+              router.push("/communnity");
+            }}
+          >
+            communnity
+          </ListItem>
         </UnorderedList>
       </Box>
     </Box>

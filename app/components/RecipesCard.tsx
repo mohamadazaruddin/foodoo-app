@@ -9,9 +9,11 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Grid, GridItem } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function RecipesCard(props: { cardData: any }) {
+  const Router = useRouter();
   const { cardData } = props;
   return (
     <Box w="full">
@@ -23,6 +25,9 @@ export default function RecipesCard(props: { cardData: any }) {
               backgroundColor="#ffffff"
               textAlign="center"
               borderRadius="12px"
+              onClick={() => {
+                Router.push(`./recipe/${item.id}`);
+              }}
             >
               <Flex justifyContent="center" mt="-45px">
                 <Image
