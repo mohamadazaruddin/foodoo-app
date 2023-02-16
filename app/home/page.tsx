@@ -12,10 +12,12 @@ import {
 import React from "react";
 import RecipesCard from "../components/RecipesCard";
 import { Search2Icon } from "@chakra-ui/icons";
+import { PlusIcon } from "../components/Icons";
 
 export default function page() {
   const recipecardDetail = [
     {
+      id: 1,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -24,6 +26,7 @@ export default function page() {
       rating: 4,
     },
     {
+      id: 2,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -32,6 +35,7 @@ export default function page() {
       rating: 5,
     },
     {
+      id: 3,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -41,6 +45,7 @@ export default function page() {
     },
 
     {
+      id: 4,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -49,6 +54,7 @@ export default function page() {
       rating: 4,
     },
     {
+      id: 5,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -57,6 +63,7 @@ export default function page() {
       rating: 4,
     },
     {
+      id: 6,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -65,6 +72,7 @@ export default function page() {
       rating: 1,
     },
     {
+      id: 7,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -73,6 +81,52 @@ export default function page() {
       rating: 4,
     },
     {
+      id: 8,
+      title: "chicken soup",
+      state: "intermediate",
+      mineral: "25",
+      kcal: "95",
+      category: "meat",
+      rating: 4,
+    },
+    {
+      id: 9,
+      title: "chicken soup",
+      state: "intermediate",
+      mineral: "25",
+      kcal: "95",
+      category: "meat",
+      rating: 4,
+    },
+    {
+      id: 10,
+      title: "chicken soup",
+      state: "intermediate",
+      mineral: "25",
+      kcal: "95",
+      category: "meat",
+      rating: 4,
+    },
+    {
+      id: 11,
+      title: "chicken soup",
+      state: "intermediate",
+      mineral: "25",
+      kcal: "95",
+      category: "meat",
+      rating: 4,
+    },
+    {
+      id: 12,
+      title: "chicken soup",
+      state: "intermediate",
+      mineral: "25",
+      kcal: "95",
+      category: "meat",
+      rating: 4,
+    },
+    {
+      id: 13,
       title: "chicken soup",
       state: "intermediate",
       mineral: "25",
@@ -82,7 +136,13 @@ export default function page() {
     },
   ];
   return (
-    <Box w="full" h="full" p="45px">
+    <Box
+      w="full"
+      h="100vh"
+      p="45px"
+      overflowY="auto"
+      className="cardscontainer"
+    >
       <Flex>
         <Box pos="relative">
           <Search2Icon
@@ -107,18 +167,20 @@ export default function page() {
           />
         </Box>
         <Spacer />
-        <Flex>
+        <Flex alignItems="center">
+          <Button mr="8px" bgColor="#db3529" color="#fff" variant="solid">
+            <Box as="span" mr="8px">
+              <PlusIcon />
+            </Box>{" "}
+            Add Recipe
+          </Button>
           <Button
             variant="outline"
-            mr="8px"
-            color="#db3529"
-            bg="#fff"
             borderColor="#db3529"
+            color="#db3529"
+            ml="8px"
           >
-            log in
-          </Button>
-          <Button variant="solid" bgColor="#db3529" color="#fff" ml="8px">
-            Create an Account
+            Log out
           </Button>
         </Flex>
       </Flex>

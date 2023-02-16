@@ -11,9 +11,11 @@ import {
 import { StarIcon } from "@chakra-ui/icons";
 import { Grid, GridItem } from "@chakra-ui/react";
 import { MeatIcon } from "./Icons";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function RecipesCard(props: { cardData: any }) {
+  const Router = useRouter();
   const { cardData } = props;
   const repeatStarIcon = (num: number) => {
     return (
@@ -40,6 +42,9 @@ export default function RecipesCard(props: { cardData: any }) {
               backgroundColor="#ffffff"
               textAlign="center"
               borderRadius="12px"
+              onClick={() => {
+                Router.push(`./recipe/${item.id}`);
+              }}
             >
               <Flex justifyContent="center" mt="-45px">
                 <Image

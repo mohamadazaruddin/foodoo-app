@@ -1,22 +1,14 @@
 "use client";
-import {
-  Box,
-  Text,
-  Flex,
-  Button,
-  FormLabel,
-  Input,
-  Link,
-} from "@chakra-ui/react";
+import React from "react";
+import { Box, Text, Flex, Button, FormLabel, Input } from "@chakra-ui/react";
 
-import { Inter } from "@next/font/google";
 import { Formik, Field, Form, FormikHelpers } from "formik";
 import * as Yup from "yup";
-
-const inter = Inter({ subsets: ["latin"] });
 interface Values {
   username: string;
   password: string;
+  email: string;
+  confirmpassword: string;
 }
 const loginSchema = Yup.object().shape({
   username: Yup.string()
@@ -29,9 +21,13 @@ const loginSchema = Yup.object().shape({
     .required("Required")
     .min(6, "Too Short!")
     .max(50, "Too Long!"),
+  email: Yup.string().email().required("Required"),
+  confirmpassword: Yup.string()
+    .required("Reguired")
+    .oneOf([Yup.ref("password")], "Password does not match"),
 });
 
-export default function Home() {
+export default function page() {
   return (
     <Flex w="full" h="full" bgColor="#fcf4f0" alignItems="center">
       <Box w="50%" bgColor="#fff" m="auto" p="20px">
@@ -41,13 +37,15 @@ export default function Home() {
           fontWeight="600"
           color="#db3529"
         >
-          Login
+          Sign up
         </Text>
         <Box>
           <Formik
             initialValues={{
               username: "",
               password: "",
+              email: "",
+              confirmpassword: "",
             }}
             onSubmit={(
               values: Values,
@@ -88,6 +86,34 @@ export default function Home() {
                   )}
                 </Box>
                 <Box>
+                  <FormLabel htmlFor="email">Email</FormLabel>
+                  <Field
+                    id="email"
+                    name="email"
+                    placeholder="John"
+                    border="1px solid #db3529"
+                    bgColor=""
+                    as={Input}
+                    value={values.email}
+                  />
+                  {errors.email && touched.email ? (
+                    <Box
+                      ml="1.5"
+                      // mt="0.5"
+                      color="red"
+                      fontSize="sm"
+                      textAlign="left"
+                      data-testid="emailError"
+                    >
+                      {errors.email}
+                    </Box>
+                  ) : (
+                    <Box fontSize="sm" visibility="hidden">
+                      Required
+                    </Box>
+                  )}
+                </Box>
+                <Box>
                   <FormLabel htmlFor="password">Password</FormLabel>
                   <Field
                     border="1px solid #db3529"
@@ -115,6 +141,38 @@ export default function Home() {
                     </Box>
                   )}
                 </Box>
+                {/* confirm password */}
+                <Box>
+                  <FormLabel htmlFor="confirmpassword">
+                    {" "}
+                    Confirm Password
+                  </FormLabel>
+                  <Field
+                    border="1px solid #db3529"
+                    bgColor=""
+                    as={Input}
+                    id="confirmpassword"
+                    name="confirmpassword"
+                    placeholder="confirmpassword"
+                    type="confirmpassword"
+                    value={values.confirmpassword}
+                  />
+                  {errors.confirmpassword && touched.confirmpassword ? (
+                    <Box
+                      ml="1.5"
+                      color="red"
+                      fontSize="sm"
+                      textAlign="left"
+                      data-testid="confirmpasswordError"
+                    >
+                      {errors.confirmpassword}
+                    </Box>
+                  ) : (
+                    <Box fontSize="sm" visibility="hidden">
+                      Required
+                    </Box>
+                  )}
+                </Box>
                 <Button
                   bgColor="#db3529"
                   color="#fff"
@@ -129,12 +187,6 @@ export default function Home() {
             )}
           </Formik>
         </Box>
-        <Text textAlign="center" mt="10px">
-          Not having an Account ?{" "}
-          <Link href="/signup" color="navy">
-            Sign up
-          </Link>{" "}
-        </Text>
       </Box>
     </Flex>
   );

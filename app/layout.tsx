@@ -1,11 +1,16 @@
 "use client";
 import { ChakraProvider, Flex, Box } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
+import "../styles/globals.css";
+import { usePathname, useRouter } from "next/navigation";
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const path = usePathname();
+
   return (
     <html lang="en">
       {/*
@@ -15,10 +20,18 @@ export default function RootLayout({
       <head />
       <body>
         <ChakraProvider>
-          <Flex w="full" h="full" overflowY="auto" backgroundColor="#fcf4f0">
-            <Box>
-              <Navbar />
-            </Box>
+          <Flex
+            w="full"
+            h="full"
+            overflowY="auto"
+            backgroundColor="#fcf4f0"
+            className="cardscontainer"
+          >
+            {path !== "/signup" && path !== "/" ? (
+              <Box>
+                <Navbar />
+              </Box>
+            ) : null}
             <Box w="full" h="full">
               {children}
             </Box>
