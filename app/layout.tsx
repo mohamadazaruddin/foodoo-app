@@ -15,7 +15,7 @@ export default function RootLayout({
       <head />
       <body>
         <ChakraProvider>
-          <Flex w="full" h="100vh" overflowY="auto" backgroundColor="#fcf4f0">
+          <Flex w="full" h="full" overflowY="auto" backgroundColor="#fcf4f0">
             <Box>
               <Navbar />
             </Box>
